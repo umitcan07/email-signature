@@ -1,25 +1,29 @@
 {
-  "short_name": "TanStack App",
-  "name": "Create TanStack App Sample",
+  "short_name": "Email Signature Generator",
+  "name": "Magna Email Signature Generator",
+  "description": "Create professional email signatures for your team with company branding and contact information",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "https://cdn.prod.website-files.com/6611435f2e87885e52ab11a9/669d9d5fab09d4c81a6109e9_Frame%202608672%402x.png",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
-      "src": "logo192.png",
+      "src": "https://cdn.prod.website-files.com/6611435f2e87885e52ab11a9/669d9d6657331d6489f8602a_Frame%202608672.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "https://cdn.prod.website-files.com/6611435f2e87885e52ab11a9/680188addf87cafb544672b6_901976914c532f6a6f0a3c4b9a16bc5f_open-graph-image.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#1f2937",
+  "background_color": "#ffffff",
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "en",
+  "orientation": "portrait-primary"
 }
