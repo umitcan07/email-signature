@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
+import { Checkbox } from '@/components/ui/checkbox'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { useState } from 'react'
 
@@ -129,27 +130,40 @@ export const SignatureForm = () => {
 
         {/* Banner */}
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold">Banner</h3>
+          <h3 className="text-lg font-semibold">Promotional Banner</h3>
 
-          <div className="space-y-2">
-            <Label htmlFor="bannerImageUrl">Banner Image URL</Label>
-            <Input
-              id="bannerImageUrl"
-              value={data.bannerImageUrl}
-              onChange={(e) => handleInputChange('bannerImageUrl', e.target.value)}
-              placeholder="https://example.com/banner.jpg"
+          <div className="flex items-center space-x-2">
+            <Checkbox
+              id="showBanner"
+              checked={data.showBanner}
+              onCheckedChange={(checked: boolean) => updateField('showBanner', checked)}
             />
+            <Label htmlFor="showBanner">Show promotional banner</Label>
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="bannerHref">Banner Link URL</Label>
-            <Input
-              id="bannerHref"
-              value={data.bannerHref}
-              onChange={(e) => handleInputChange('bannerHref', e.target.value)}
-              placeholder="https://company.com/promotion"
-            />
-          </div>
+          {data.showBanner && (
+            <>
+              <div className="space-y-2">
+                <Label htmlFor="bannerImageUrl">Banner Image URL</Label>
+                <Input
+                  id="bannerImageUrl"
+                  value={data.bannerImageUrl}
+                  onChange={(e) => handleInputChange('bannerImageUrl', e.target.value)}
+                  placeholder="https://example.com/banner.jpg"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="bannerHref">Banner Link URL</Label>
+                <Input
+                  id="bannerHref"
+                  value={data.bannerHref}
+                  onChange={(e) => handleInputChange('bannerHref', e.target.value)}
+                  placeholder="https://company.com/promotion"
+                />
+              </div>
+            </>
+          )}
         </div>
 
         {/* Disclaimer */}

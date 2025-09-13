@@ -12,6 +12,7 @@ export interface SignatureData {
   bannerHref: string
   telegram?: string
   linkedin?: string
+  showBanner: boolean
 }
 
 export interface SignatureStore {
@@ -30,10 +31,11 @@ export const defaultSignatureData: SignatureData = {
   companyWebsite: 'https://magna.so',
   companyLinkedin: 'https://www.linkedin.com/company/magnatokens',
   companyTwitter: 'https://x.com/magna_digital',
-  bannerImageUrl: '',
+  bannerImageUrl: '/banner.png',
   disclaimerText: 'This communication and any attachments may contain confidential and privileged information for the intended recipient(s) only. If you are not the intended recipient, any use, dissemination, distribution, or copying of this communication is strictly prohibited.\n\nIf you have received this communication in error, please notify the sender immediately by reply email and delete the message and any attachments from your system.',
-  companyLogoUrl: 'https://magna.so/logo.png',
+  companyLogoUrl: '/magna-logo.png',
   bannerHref: 'https://magna.so',
-  telegram: '',
-  linkedin: '',
+  telegram: 'bruno_faviero',
+  linkedin: 'https://linkedin.com/in/bruno_faviero',
+  showBanner: true,
 }
