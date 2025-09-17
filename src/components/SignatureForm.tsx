@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { BANNER_OPTIONS } from '@/constants/banners'
 
 
 export const SignatureForm = () => {
@@ -158,33 +159,43 @@ export const SignatureForm = () => {
           <div className="space-y-4">
             <h4 className="text-md font-medium">Promotional Banner</h4>
 
-            <div className="flex items-center space-x-2">
-              <Checkbox
-                id="showBanner"
-                checked={data.showBanner}
-                onCheckedChange={(checked: boolean) => updateField('showBanner', checked)}
-              />
-              <Label htmlFor="showBanner">Show promotional banner</Label>
+            <div className="space-y-2">
+              <Label htmlFor="selectedBanner">Banner Type</Label>
+              <Select
+                value={data.selectedBanner}
+                onValueChange={(value) => updateField('selectedBanner', value)}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Select a banner" />
+                </SelectTrigger>
+                <SelectContent>
+                  {BANNER_OPTIONS.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
-            {data.showBanner && (
+            {data.selectedBanner === 'custom' && (
               <>
                 <div className="space-y-2">
-                  <Label htmlFor="bannerImageUrl">Banner Image URL</Label>
+                  <Label htmlFor="customBannerUrl">Custom Banner Image URL</Label>
                   <Input
-                    id="bannerImageUrl"
-                    value={data.bannerImageUrl}
-                    onChange={(e) => handleInputChange('bannerImageUrl', e.target.value)}
+                    id="customBannerUrl"
+                    value={data.customBannerUrl}
+                    onChange={(e) => handleInputChange('customBannerUrl', e.target.value)}
                     placeholder="https://example.com/banner.jpg"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="bannerHref">Banner Link URL</Label>
+                  <Label htmlFor="customBannerHref">Custom Banner Link URL</Label>
                   <Input
-                    id="bannerHref"
-                    value={data.bannerHref}
-                    onChange={(e) => handleInputChange('bannerHref', e.target.value)}
+                    id="customBannerHref"
+                    value={data.customBannerHref}
+                    onChange={(e) => handleInputChange('customBannerHref', e.target.value)}
                     placeholder="https://company.com/promotion"
                   />
                 </div>
@@ -192,7 +203,12 @@ export const SignatureForm = () => {
             )}
           </div>
 
-          {/* Disclaimer */}
+        </div>
+
+        {/* Legal Disclaimer */}
+        <div className="space-y-4 p-4 border rounded-lg bg-muted/50">
+          <h3 className="text-lg font-semibold">Legal Disclaimer</h3>
+
           <div className="space-y-2">
             <Label htmlFor="disclaimerText">Disclaimer Text</Label>
             <Textarea

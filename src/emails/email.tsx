@@ -14,6 +14,7 @@ import {
 } from '@react-email/components'
 import type { SignatureData } from '@/types/signature';
 import { COMPANY_INFO } from '@/constants/company';
+import { BANNER_OPTIONS } from '@/constants/banners';
 
 
 const BASE_URL = import.meta.env.PUBLIC_BASE_URL || 'https://magna-email-signature.netlify.app/'
@@ -104,7 +105,7 @@ const UserSection = ({ imageUrl, name, role, showTwitter, showLinkedin, showTele
   )
 }
 
-const CompantSection = ({ logoUrl, website, linkedin, twitter }: { logoUrl: string, website: string, linkedin: string, twitter: string }) => {
+const CompanySection = ({ logoUrl, website, linkedin, twitter }: { logoUrl: string, website: string, linkedin: string, twitter: string }) => {
   return (
     <Section>
       <Row>
@@ -140,6 +141,38 @@ const CompantSection = ({ logoUrl, website, linkedin, twitter }: { logoUrl: stri
         </Column >
       </Row >
     </Section >
+  )
+}
+
+
+const BannerSection = ({ selectedBanner, customBannerUrl, customBannerHref }: {
+  selectedBanner: string,
+  customBannerUrl: string,
+  customBannerHref: string
+}) => {
+  const bannerOption = BANNER_OPTIONS.find(option => option.value === selectedBanner)
+
+  if (!bannerOption || selectedBanner === 'no-banner') {
+    return null
+  }
+
+  const imageUrl = selectedBanner === 'custom' ? customBannerUrl : `${BASE_URL}/${bannerOption.url}`
+  const href = selectedBanner === 'custom' ? customBannerHref : bannerOption.href
+
+  if (!imageUrl) {
+    return null
+  }
+
+  return (
+    <Section style={{ marginTop: '16px' }}>
+      <Row>
+        <Column align='left'>
+          <Link href={href || '#'}>
+            <Img src={imageUrl} alt="Banner" width="320" height="auto" />
+          </Link>
+        </Column>
+      </Row>
+    </Section>
   )
 }
 
@@ -203,11 +236,16 @@ export const EmailSignatureTemplate = ({ data }: EmailSignatureTemplateProps) =>
           />
           <Divider />
 
-          <CompantSection
+          <CompanySection
             logoUrl={COMPANY_INFO.logoUrl}
             website={COMPANY_INFO.website}
             linkedin={COMPANY_INFO.linkedin}
             twitter={COMPANY_INFO.twitter}
+          />
+          <BannerSection
+            selectedBanner={data.selectedBanner}
+            customBannerUrl={data.customBannerUrl}
+            customBannerHref={data.customBannerHref}
           />
 
           <Divider />
