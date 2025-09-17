@@ -3,16 +3,16 @@ export interface SignatureData {
   role: string
   avatarPhotoUrl: string
   email: string
-  companyWebsite: string
-  companyLinkedin: string
-  companyTwitter: string
   bannerImageUrl: string
   disclaimerText: string
-  companyLogoUrl: string
   bannerHref: string
-  telegram?: string
-  linkedin?: string
   showBanner: boolean
+  showTelegram: boolean
+  showLinkedin: boolean
+  showTwitter: boolean
+  telegramUsername?: string
+  linkedinUsername?: string
+  twitterUsername?: string
 }
 
 export interface SignatureStore {
@@ -28,14 +28,13 @@ export const defaultSignatureData: SignatureData = {
   role: 'CEO',
   avatarPhotoUrl: 'https://cdn.prod.website-files.com/6611435f2e87885e52ab11a9/689a466dac1938f3cc807e35_bruno.webp',
   email: 'bruno@magna.so',
-  companyWebsite: 'https://magna.so',
-  companyLinkedin: 'https://www.linkedin.com/company/magnatokens',
-  companyTwitter: 'https://x.com/magna_digital',
   bannerImageUrl: '/banner.png',
-  disclaimerText: 'This communication and any attachments may contain confidential and privileged information for the intended recipient(s) only. If you are not the intended recipient, any use, dissemination, distribution, or copying of this communication is strictly prohibited.\n\nIf you have received this communication in error, please notify the sender immediately by reply email and delete the message and any attachments from your system.',
-  companyLogoUrl: '/magna-logo.png',
-  bannerHref: 'https://magna.so',
-  telegram: 'bruno_faviero',
-  linkedin: 'https://linkedin.com/in/bruno_faviero',
+  disclaimerText: 'This email, including any attachments, contains information that is confidential and privileged. It is intended solely for the designated recipient(s).\n\n If you have received this email in error, any form of unauthorized use, distribution, or reproduction is strictly forbidden. Please notify the sender immediately by reply and delete this message and all attachments from your system.',  bannerHref: 'https://magna.so',
   showBanner: true,
+  showTelegram: true,
+  showLinkedin: true,
+  showTwitter: true,
+  telegramUsername: 'bruno_faviero',
+  linkedinUsername: 'bruno_faviero',
+  twitterUsername: 'magna_digital',
 }

@@ -1,5 +1,5 @@
 import { useSignatureStore } from '@/store/signatureStore'
-import { EmailSignatureTemplate } from '@/emails/EmailSignatureTemplate'
+import { EmailSignatureTemplate } from '@/emails/email'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { render } from '@react-email/render'
