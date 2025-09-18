@@ -113,21 +113,23 @@ const CompanySection = ({ logoUrl, website, linkedin, twitter }: { logoUrl: stri
     <Section>
       <Row>
         <Column style={{ width: '80%' }}>
-          <Img
-            alt="Magna Logo"
-            height="16"
-            src={logoUrl}
-            style={
-              {
-                height: 16,
-                width: 'auto',
-                objectFit: 'contain',
-                display: 'block',
-                marginTop: '4px',
-                marginLeft: '4px'
+          <Link href={website}>
+            <Img
+              alt="Magna Logo"
+              height="16"
+              src={logoUrl}
+              style={
+                {
+                  height: 16,
+                  width: 'auto',
+                  objectFit: 'contain',
+                  display: 'block',
+                  marginTop: '4px',
+                  marginLeft: '4px'
+                }
               }
-            }
-          />
+            />
+          </Link>
         </Column>
         <Column align="right">
           <Row align="right">
