@@ -44,7 +44,7 @@ const IconLink = ({ href, icon, alt, children }: {
       display: 'flex',
       alignItems: 'end',
       gap: '4px',
-      padding: '2px 0px 2px 2px'
+      padding: '4px 0px 4px 2px'
     }}>
       <Img src={icon} alt={alt} width="16" height="16" />
       {children}
@@ -62,16 +62,18 @@ const Divider = () => {
   )
 }
 
-const UserSection = ({ imageUrl, name, role, showTwitter, showLinkedin, showTelegram, twitterUsername, linkedinUsername, telegramUsername }: {
+const UserSection = ({ imageUrl, name, role, showTwitter, showLinkedin, showTelegram, showCalendar, twitterUsername, linkedinUsername, telegramUsername, calendarUrl }: {
   imageUrl: string,
   name: string,
   role: string,
   showTwitter: boolean,
   showLinkedin: boolean,
   showTelegram: boolean,
+  showCalendar: boolean,
   twitterUsername: string | undefined,
   linkedinUsername: string | undefined,
-  telegramUsername: string | undefined
+  telegramUsername: string | undefined,
+  calendarUrl: string | undefined
 }) => {
   return (
     <Section>
@@ -97,6 +99,7 @@ const UserSection = ({ imageUrl, name, role, showTwitter, showLinkedin, showTele
               {showTelegram && telegramUsername && <IconLink href={`https://t.me/${telegramUsername}`} icon={`${BASE_URL}/icons/telegram-fill.png`} alt="Telegram">{telegramUsername}</IconLink>}
               {showLinkedin && linkedinUsername && <IconLink href={`https://linkedin.com/in/${linkedinUsername}`} icon={`${BASE_URL}/icons/linkedin-box-fill.png`} alt="LinkedIn">{linkedinUsername}</IconLink>}
               {showTwitter && twitterUsername && <IconLink href={`https://x.com/${twitterUsername}`} icon={`${BASE_URL}/icons/x-fill.png`} alt="Twitter">{twitterUsername}</IconLink>}
+              {showCalendar && calendarUrl && <IconLink href={calendarUrl} icon={`${BASE_URL}/icons/calendar.png`} alt="Calendar">Book a call</IconLink>}
             </Column>
           </Row>
         </Column>
@@ -230,9 +233,11 @@ export const EmailSignatureTemplate = ({ data }: EmailSignatureTemplateProps) =>
             showTwitter={data.showTwitter}
             showLinkedin={data.showLinkedin}
             showTelegram={data.showTelegram}
+            showCalendar={data.showCalendar}
             twitterUsername={data.twitterUsername}
             linkedinUsername={data.linkedinUsername}
             telegramUsername={data.telegramUsername}
+            calendarUrl={data.calendarUrl}
           />
           <Divider />
 

@@ -147,6 +147,26 @@ export const SignatureForm = () => {
                   />
                 </div>
               )}
+
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="showCalendar"
+                  checked={data.showCalendar}
+                  onCheckedChange={(checked: boolean) => updateField('showCalendar', checked)}
+                />
+                <Label htmlFor="showCalendar">Show Calendar</Label>
+              </div>
+              {data.showCalendar && (
+                <div className="ml-6 space-y-2">
+                  <Label htmlFor="calendarUrl">Calendar URL</Label>
+                  <Input
+                    id="calendarUrl"
+                    value={data.calendarUrl || ''}
+                    onChange={(e) => handleInputChange('calendarUrl', e.target.value)}
+                    placeholder="https://calendly.com/username"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>

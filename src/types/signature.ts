@@ -12,9 +12,11 @@ export interface SignatureData {
   showTelegram: boolean
   showLinkedin: boolean
   showTwitter: boolean
+  showCalendar: boolean
   telegramUsername?: string
   linkedinUsername?: string
   twitterUsername?: string
+  calendarUrl?: string
 }
 
 export interface SignatureStore {
@@ -39,7 +41,9 @@ export const defaultSignatureData: SignatureData = {
   showTelegram: true,
   showLinkedin: true,
   showTwitter: true,
+  showCalendar: false,
   telegramUsername: 'bruno_faviero',
   linkedinUsername: 'bruno_faviero',
   twitterUsername: 'magna_digital',
+  calendarUrl: '',
 }
