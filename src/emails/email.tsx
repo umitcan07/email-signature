@@ -96,10 +96,10 @@ const UserSection = ({ imageUrl, name, role, showTwitter, showLinkedin, showTele
         <Column align='right'>
           <Row align='right'>
             <Column>
+              {showCalendar && calendarUrl && <IconLink href={calendarUrl} icon={`${BASE_URL}/icons/calendar.png`} alt="Calendar">Book a call</IconLink>}
               {showTelegram && telegramUsername && <IconLink href={`https://t.me/${telegramUsername}`} icon={`${BASE_URL}/icons/telegram-fill.png`} alt="Telegram">{telegramUsername}</IconLink>}
               {showLinkedin && linkedinUsername && <IconLink href={`https://linkedin.com/in/${linkedinUsername}`} icon={`${BASE_URL}/icons/linkedin-box-fill.png`} alt="LinkedIn">{linkedinUsername}</IconLink>}
               {showTwitter && twitterUsername && <IconLink href={`https://x.com/${twitterUsername}`} icon={`${BASE_URL}/icons/x-fill.png`} alt="Twitter">{twitterUsername}</IconLink>}
-              {showCalendar && calendarUrl && <IconLink href={calendarUrl} icon={`${BASE_URL}/icons/calendar.png`} alt="Calendar">Book a call</IconLink>}
             </Column>
           </Row>
         </Column>
