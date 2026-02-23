@@ -1,20 +1,20 @@
+import { BANNER_OPTIONS } from '@/constants/banners';
+import { COMPANY_INFO } from '@/constants/company';
+import type { SignatureData } from '@/types/signature';
 import {
-  Html,
-  Head,
   Body,
-  Container,
-  Section,
-  Row,
   Column,
-  Text,
+  Container,
+  Font,
+  Head,
+  Hr,
+  Html,
   Img,
   Link,
-  Hr,
-  Font,
+  Row,
+  Section,
+  Text,
 } from '@react-email/components'
-import type { SignatureData } from '@/types/signature';
-import { COMPANY_INFO } from '@/constants/company';
-import { BANNER_OPTIONS } from '@/constants/banners';
 
 
 const BASE_URL = import.meta.env.PUBLIC_BASE_URL || 'https://magna-email-signature.netlify.app/'
@@ -116,11 +116,11 @@ const CompanySection = ({ logoUrl, website, linkedin, twitter }: { logoUrl: stri
           <Link href={website}>
             <Img
               alt="Magna Logo"
-              height="16"
+              height="24"
               src={logoUrl}
               style={
                 {
-                  height: 16,
+                  height: 24,
                   width: 'auto',
                   objectFit: 'contain',
                   display: 'block',
